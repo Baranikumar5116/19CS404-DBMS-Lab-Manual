@@ -45,7 +45,7 @@ Design a database for patient management, appointments, medical records, and bil
    - Why you chose the entities and relationships.
    - How you modeled prerequisites or billing.
 
-# ER Diagram Submission - Student Name
+# ER Diagram Submission - Baranikumar S -(212224060038)
 
 ## Scenario Chosen:
 University
@@ -62,68 +62,79 @@ University
 
    * Program ID, Program Name, Governing Department
 
-3. STUDENT:
-Admission Number, Name, Email ID, Phone Number, Date of Birth, Age
+3. __STUDENT:__
 
-4. COURSES:
-Course ID, Course Name, Credits, Prerequisites
+   * Admission Number, Name, Email ID, Phone Number, Date of Birth, Age
 
-5. INSTRUCTOR:
-Staff ID, Name, Email ID, Phone Number, Date of Birth ...
+4. __COURSES:__
+
+   * Course ID, Course Name, Credits, Prerequisites
+
+5. __INSTRUCTOR:__
+
+   * Staff ID, Name, Email ID, Phone Number, Date of Birth ...
 ...
 
 ## Relationships and Constraints:
-1. __DEPARTMENT__ offers PROGRAM
-Cardinality: One-to-Many
+1. ____DEPARTMENT__ offers PROGRAM__
 
-Participation: Total (each program belongs to exactly one department)
+   __Cardinality:__ One-to-Many
 
-2. PROGRAM enrolls STUDENT
-Cardinality: Many-to-Many
+   __Participation:__ Total (each program belongs to exactly one department)
 
-Participation: Partial (a student can be enrolled in multiple programs, but not every student belongs to a program)
+2. __PROGRAM enrolls STUDENT__
 
-3. COURSES catalog PROGRAM
-Cardinality: Many-to-One
 
-Participation: Total (every course must be associated with a program)
+   __Cardinality:__ Many-to-Many
 
-4. STUDENT registers for COURSES
-Cardinality: Many-to-Many
+   __Participation:__ Partial (a student can be enrolled in multiple programs, but not every student belongs to a program)
 
-Participation: Partial
+3. __COURSES catalog PROGRAM__
 
-5. INSTRUCTOR teaches COURSES
-Cardinality: Many-to-Many
+   __Cardinality:__ Many-to-One
 
-Participation: Partial
+   __Participation:__ Total (every course must be associated with a program)
 
-6. COURSES have prerequisites
-Cardinality: Many-to-Many
+4. __STUDENT registers for COURSES__
 
-Participation: Partial ...
+   __Cardinality:__ Many-to-Many
+
+   __Participation:__ Partial
+
+5. __INSTRUCTOR teaches COURSES__
+
+   __Cardinality:__ Many-to-Many
+
+   __Participation:__ Partial
+
+6. __COURSES have prerequisites__
+
+   __Cardinality:__ Many-to-Many
+
+   __Participation:__ Partial ...
 ...
 
 ## Extension (Prerequisite / Billing):
-Prerequisites are represented as a self-referencing many-to-many relationship on the COURSES entity. This allows the flexibility to:
+* Prerequisites are represented as a self-referencing many-to-many relationship on the COURSES entity. This allows the flexibility to:
 
-Define multiple prerequisites for a single course.
+   *  Define multiple prerequisites for a single course.
 
-Assign a single course as a prerequisite to multiple other courses.
+   *  Assign a single course as a prerequisite to multiple other courses.
 
 ## Design Choices:
-Entity Selection: The entities were chosen to mirror the key components of an academic institution—departments, programs, students, courses, and instructors—to ensure a comprehensive database structure.
+__Entity Selection:__ The entities were chosen to mirror the key components of an academic institution—departments, programs, students, courses, and instructors—to ensure a comprehensive database structure.
 
-Relationships: The relationships were established to represent real-world interactions effectively, like enrollment, teaching, and course prerequisites.
+__Relationships:__ The relationships were established to represent real-world interactions effectively, like enrollment, teaching, and course prerequisites.
 
-Assumptions: To maintain consistency:
+__Assumptions:__ To maintain consistency:
 
-Each program belongs to one department.
+* Each program belongs to one department.
 
-Each course must belong to a program.
+* Each course must belong to a program.
 
-Instructors may teach multiple courses and vice versa.
+* Instructors may teach multiple courses and vice versa.
 
-These design decisions ensure the database is both scalable and adheres to academic institution requirements
+* These design decisions ensure the database is both scalable and adheres to academic institution requirements
 
 ## RESULT
+Thus, to understand and apply the concepts of ER modeling by creating an ER diagram for a real-world application has been done successfully.
