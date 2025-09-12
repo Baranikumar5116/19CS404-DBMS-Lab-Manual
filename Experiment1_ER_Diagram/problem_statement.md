@@ -92,10 +92,14 @@ EventRoom	  |  EventID (FK, PK), RoomID (FK, PK), BookingDate	 |   Links events 
 | Relationship | Cardinality | Participation | Notes |
 |--------------|------------|---------------|-------|
 Member BORROWS Book|	1:N|	Total (Loan), Partial (Member, Book)	|One member, many loans; one book, many loans.
-Loan HAS Fine	|1:1|	Partial (Loan, Fine)	|A loan may or may not have an associated fine.
-Member REGISTERS for Event|	M:N|	Total (Registration), Partial (Member, Event)	|Many members, many events.
-Event HAS Speaker|	M:N	|Total (EventSpeaker), Partial (Event, Speaker)	|Many events, many speakers.
-Event USES Room	|M:N|	Total (EventRoom), Partial (Event, Room)	|Many events, many rooms.
+
+Loan HAS Fine	  |1:1|  	Partial (Loan, Fine)	  |  A loan may or may not have an associated fine.
+
+Member REGISTERS for Event  |	M:N   |	   Total (Registration), Partial (Member, Event)	|  Many members, many events.
+
+Event HAS Speaker  |	M:N	|    Total (EventSpeaker), Partial (Event, Speaker)	|    Many events, many speakers.
+
+Event USES Room    	|M:N  |    	Total (EventRoom), Partial (Event, Room)	|    Many events, many rooms.
 
 ### Assumptions
 Each book copy is unique via BookID.
