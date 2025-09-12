@@ -73,19 +73,19 @@ The Central Library wants to manage book lending and cultural events.
 
 ### Entities and Attributes
 
-| Entity | Attributes (PK, FK) | Notes |
-|--------|--------------------|-------|
+| Entity        | Attributes                                                                 | Notes                                |
+|---------------|----------------------------------------------------------------------------|--------------------------------------|
+| Member        | MemberID (PK), Name, Address, ContactInfo                                  | Library patron details               |
+| Book          | BookID (PK), Title, Author, Category                                       | Cataloged book details               |
+| Loan          | LoanID (PK), BookID (FK), MemberID (FK), LoanDate, ReturnDate, DueDate     | Records book borrowing               |
+| Fine          | FineID (PK), LoanID (FK), Amount, PaymentDate, Status                      | Tracks overdue penalties             |
+| Event         | EventID (PK), EventName, EventDate, EventTime                              | Library cultural event info          |
+| Speaker       | SpeakerID (PK), Name, Bio                                                  | Details of event speakers/authors    |
+| Room          | RoomID (PK), RoomNumber, Capacity, Type                                    | Library room details (e.g., study)   |
+| Registration  | MemberID (FK, PK), EventID (FK, PK), RegistrationDate                      | Links members to events              |
+| EventSpeaker  | EventID (FK, PK), SpeakerID (FK, PK)                                       | Links events to speakers             |
+| EventRoom     | EventID (FK, PK), RoomID (FK, PK), BookingDate                             | Links events to rooms used           |
 
-Member	    |    MemberID (PK), Name, Address, ContactInfo	 |   Library patron details.
-Book	     |   BookID (PK), Title, Author, Category	      |  Cataloged book details.
-Loan	     |   LoanID (PK), BookID (FK), MemberID (FK), LoanDate, ReturnDate, DueDate	|    Records book borrowing.
-Fine	     |   FineID (PK), LoanID (FK), Amount, PaymentDate, Status	      |      Tracks overdue penalties.
-Event	     |   EventID (PK), EventName, EventDate, EventTime	 |   Library cultural event info.
-Speaker 	 |   SpeakerID (PK), Name, Bio	                     |   Details of event speakers/authors.
-Room	     |   RoomID (PK), RoomNumber, Capacity, Type	|Library room details (e.g., event, study).
-Registration|	MemberID (FK, PK), EventID (FK, PK), RegistrationDate	|Links members to events.
-EventSpeaker|	EventID (FK, PK), SpeakerID (FK, PK)	    |Links events to speakers.
-EventRoom	  |  EventID (FK, PK), RoomID (FK, PK), BookingDate	 |   Links events to rooms used.
 
 ### Relationships and Constraints
 
