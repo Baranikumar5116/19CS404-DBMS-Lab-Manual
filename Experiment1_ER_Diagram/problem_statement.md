@@ -1,9 +1,11 @@
 # ER Diagram Workshop – Submission Template
 
 ## Objective
+
 To understand and apply ER modeling concepts by creating ER diagrams for real-world applications.
 
 ## Purpose
+
 Gain hands-on experience in designing ER diagrams that represent database structure including entities, relationships, attributes, and constraints.
 
 ---
@@ -11,9 +13,11 @@ Gain hands-on experience in designing ER diagrams that represent database struct
 # Scenario A: City Fitness Club Management
 
 **Business Context:**  
+
 FlexiFit Gym wants a database to manage its members, trainers, and fitness programs.
 
-**Requirements:**  
+**Requirements:**
+
 - Members register with name, membership type, and start date.  
 - Each member can join multiple programs (Yoga, Zumba, Weight Training).  
 - Trainers assigned to programs; a program may have multiple trainers.  
@@ -22,9 +26,13 @@ FlexiFit Gym wants a database to manage its members, trainers, and fitness progr
 - Payments tracked for memberships and sessions.
 
 ### ER Diagram:
+
+
 ![alt text](image.png)
 
-### Entities and Attributes
+### Entities and Attributes:
+
+
 
 | Entity            | Attributes (PK, FK)                                             | Notes                               |
 |-------------------|-----------------------------------------------------------------|-------------------------------------|
@@ -37,7 +45,9 @@ FlexiFit Gym wants a database to manage its members, trainers, and fitness progr
 | ProgramAssignment | TrainerID (FK, PK), ProgramID (FK, PK)                          | Links trainers to programs          |
 | Booking           | MemberID (FK, PK), TrainerID (FK, PK), SessionID (FK, PK)       | Links members, trainers, sessions   |
 
-### Relationships and Constraints
+### Relationships and Constraints:
+
+
 
 | Relationship                     | Cardinality | Participation                         | Notes                                                                 |
 |----------------------------------|-------------|--------------------------------------|----------------------------------------------------------------------|
@@ -47,21 +57,21 @@ FlexiFit Gym wants a database to manage its members, trainers, and fitness progr
 | Member MAKES Payment             | 1:N         | Total (Payment), Partial (Member)    | Payments by a member; a member makes many payments.                  |
 
 
-### Assumptions
-IDs are primary keys and unique.
+### Assumptions:
 
-Junction tables resolve all M:N relationships.
-
-Session status covers attendance.
-
+- IDs are primary keys and unique.
+- Junction tables resolve all M:N relationships.
+- Session status covers attendance.
 ---
 
 # Scenario B: City Library Event & Book Lending System
 
 **Business Context:**  
+
 The Central Library wants to manage book lending and cultural events.
 
 **Requirements:**  
+
 - Members borrow books, with loan and return dates tracked.  
 - Each book has title, author, and category.  
 - Library organizes events; members can register.  
@@ -70,9 +80,13 @@ The Central Library wants to manage book lending and cultural events.
 - Overdue fines apply for late returns.
 
 ### ER Diagram:
+
+
 ![alt text](image-1.png)
 
-### Entities and Attributes
+### Entities and Attributes:
+
+ 
 
 | Entity        | Attributes                                                                 | Notes                                |
 |---------------|----------------------------------------------------------------------------|--------------------------------------|
@@ -88,7 +102,9 @@ The Central Library wants to manage book lending and cultural events.
 | EventRoom     | EventID (FK, PK), RoomID (FK, PK), BookingDate                             | Links events to rooms used           |
 
 
-### Relationships and Constraints
+### Relationships and Constraints:
+
+
 
 | Entity        | Attributes (PK, FK)                                                   | Notes                                   |
 |---------------|----------------------------------------------------------------------|-----------------------------------------|
@@ -104,24 +120,23 @@ The Central Library wants to manage book lending and cultural events.
 | EventRoom     | EventID (FK, PK), RoomID (FK, PK), BookingDate                        | Links events to rooms used               |
 
 
-### Assumptions
-Each book copy is unique via BookID.
+### Assumptions:
 
-Fines are only for late returns.
-
-Rooms can serve multiple purposes (events, study).
-
-M:N relationships are resolved with junction tables.
-
-All IDs are unique primary keys.
+- Each book copy is unique via BookID.
+- lines are only for late returns.
+- Rooms can serve multiple purposes (events, study).
+- M:N relationships are resolved with junction tables.
+- All IDs are unique primary keys.
 ---
 
 # Scenario C: Restaurant Table Reservation & Ordering
 
 **Business Context:**  
+
 A popular restaurant wants to manage reservations, orders, and billing.
 
 **Requirements:**  
+
 - Customers can reserve tables or walk in.  
 - Each reservation includes date, time, and number of guests.  
 - Customers place food orders linked to reservations.  
@@ -130,9 +145,13 @@ A popular restaurant wants to manage reservations, orders, and billing.
 - Waiters assigned to serve reservations.
 
 ### ER Diagram:
+
+
 ![alt text](image-2.png)
 
-### Entities and Attributes
+### Entities and Attributes:
+
+
 
 | Entity       | Attributes (PK, FK)                                                                 | Notes                                              |
 |--------------|--------------------------------------------------------------------------------------|---------------------------------------------------|
@@ -146,7 +165,9 @@ A popular restaurant wants to manage reservations, orders, and billing.
 | OrderLine    | OrderID (FK, PK), DishID (FK, PK), Quantity, Subtotal                                | Details of dishes within an order                 |
 
 
-### Relationships and Constraints
+### Relationships and Constraints:
+
+
 
 | Relationship                  | Cardinality                                      | Participation                              | Notes                                                                 |
 |-------------------------------|-------------------------------------------------|-------------------------------------------|----------------------------------------------------------------------|
@@ -158,18 +179,14 @@ A popular restaurant wants to manage reservations, orders, and billing.
 
 
 
-### Assumptions
-Table Assignment: A reservation is assigned to one specific table. Walk-in customers might create a reservation record on the spot.
+### Assumptions:
 
-Order-Reservation Link: Every order must be associated with an existing reservation.
-
-Dish Category: Each dish belongs to a single category.
-
-Bill Generation: A single bill is generated per reservation, encompassing all orders for that reservation.
-
-Waiter Assignment: Waiters can be assigned to multiple reservations, and a single reservation might have multiple waiters over its duration (e.g., shift changes).
-
-All IDs are unique primary keys.
+- Table Assignment: A reservation is assigned to one specific table. Walk-in customers might create a reservation record on the spot.
+- Order-Reservation Link: Every order must be associated with an existing reservation.
+- Dish Category: Each dish belongs to a single category.
+- Bill Generation: A single bill is generated per reservation, encompassing all orders for that reservation.
+- Waiter Assignment: Waiters can be assigned to multiple reservations, and a single reservation might have multiple waiters over its duration (e.g., shift changes).
+- All IDs are unique primary keys.
 ---
 
 ## Instructions for Students
