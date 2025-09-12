@@ -41,10 +41,10 @@ Booking	     |   MemberID (FK, PK), TrainerID (FK, PK), SessionID (FK, PK)	|Link
 
 | Relationship | Cardinality | Participation | Notes |
 |--------------|------------|---------------|-------|
-Member ENROLLS IN Program	M:N	Total (Enrollment), Partial (Member, Program)	Members can join multiple programs; programs have multiple members.
-Trainer LEADS Program	M:N	Partial (Trainer), Total (Program)	Trainers lead multiple programs; programs have multiple trainers.
-Member BOOKS Session WITH Trainer	M:N	Partial (Member, Trainer), Total (Session)	Members book sessions with trainers; trainers conduct sessions.
-Member MAKES Payment	1:N	Total (Payment), Partial (Member)	Payments by a member; a member makes many payments.
+Member ENROLLS IN Program	|M:N	|Total (Enrollment), Partial (Member, Program)|	Members can join multiple programs; programs have multiple members.
+Trainer LEADS Program	|M:N	|Partial (Trainer), Total (Program)|	Trainers lead multiple programs; programs have multiple trainers.
+Member BOOKS Session WITH Trainer|	M:N	|Partial (Member, Trainer), Total (Session)|	Members book sessions with trainers; trainers conduct sessions.
+Member MAKES Payment	|1:N	|Total (Payment), Partial (Member)	|Payments by a member; a member makes many payments.
 
 ### Assumptions
 IDs are primary keys and unique.
@@ -76,26 +76,26 @@ The Central Library wants to manage book lending and cultural events.
 | Entity | Attributes (PK, FK) | Notes |
 |--------|--------------------|-------|
 
-Member	        MemberID (PK), Name, Address, ContactInfo	    Library patron details.
-Book	        BookID (PK), Title, Author, Category	        Cataloged book details.
-Loan	        LoanID (PK), BookID (FK), MemberID (FK), LoanDate, ReturnDate, DueDate	    Records book borrowing.
-Fine	        FineID (PK), LoanID (FK), Amount, PaymentDate, Status	            Tracks overdue penalties.
-Event	        EventID (PK), EventName, EventDate, EventTime	    Library cultural event info.
-Speaker 	    SpeakerID (PK), Name, Bio	                        Details of event speakers/authors.
-Room	        RoomID (PK), RoomNumber, Capacity, Type	Library room details (e.g., event, study).
-Registration	MemberID (FK, PK), EventID (FK, PK), RegistrationDate	Links members to events.
-EventSpeaker	EventID (FK, PK), SpeakerID (FK, PK)	    Links events to speakers.
-EventRoom	    EventID (FK, PK), RoomID (FK, PK), BookingDate	    Links events to rooms used.
+Member	    |    MemberID (PK), Name, Address, ContactInfo	 |   Library patron details.
+Book	     |   BookID (PK), Title, Author, Category	      |  Cataloged book details.
+Loan	     |   LoanID (PK), BookID (FK), MemberID (FK), LoanDate, ReturnDate, DueDate	|    Records book borrowing.
+Fine	     |   FineID (PK), LoanID (FK), Amount, PaymentDate, Status	      |      Tracks overdue penalties.
+Event	     |   EventID (PK), EventName, EventDate, EventTime	 |   Library cultural event info.
+Speaker 	 |   SpeakerID (PK), Name, Bio	                     |   Details of event speakers/authors.
+Room	     |   RoomID (PK), RoomNumber, Capacity, Type	|Library room details (e.g., event, study).
+Registration|	MemberID (FK, PK), EventID (FK, PK), RegistrationDate	|Links members to events.
+EventSpeaker|	EventID (FK, PK), SpeakerID (FK, PK)	    |Links events to speakers.
+EventRoom	  |  EventID (FK, PK), RoomID (FK, PK), BookingDate	 |   Links events to rooms used.
 
 ### Relationships and Constraints
 
 | Relationship | Cardinality | Participation | Notes |
 |--------------|------------|---------------|-------|
-Member BORROWS Book	1:N	Total (Loan), Partial (Member, Book)	One member, many loans; one book, many loans.
-Loan HAS Fine	1:1	Partial (Loan, Fine)	A loan may or may not have an associated fine.
-Member REGISTERS for Event	M:N	Total (Registration), Partial (Member, Event)	Many members, many events.
-Event HAS Speaker	M:N	Total (EventSpeaker), Partial (Event, Speaker)	Many events, many speakers.
-Event USES Room	M:N	Total (EventRoom), Partial (Event, Room)	Many events, many rooms.
+Member BORROWS Book|	1:N|	Total (Loan), Partial (Member, Book)	|One member, many loans; one book, many loans.
+Loan HAS Fine	|1:1|	Partial (Loan, Fine)	|A loan may or may not have an associated fine.
+Member REGISTERS for Event|	M:N|	Total (Registration), Partial (Member, Event)	|Many members, many events.
+Event HAS Speaker|	M:N	|Total (EventSpeaker), Partial (Event, Speaker)	|Many events, many speakers.
+Event USES Room	|M:N|	Total (EventRoom), Partial (Event, Room)	|Many events, many rooms.
 
 ### Assumptions
 Each book copy is unique via BookID.
@@ -130,24 +130,24 @@ A popular restaurant wants to manage reservations, orders, and billing.
 | Entity | Attributes (PK, FK) | Notes |
 |--------|--------------------|-------|
 
-Customer	    CustomerID (PK), Name, ContactInfo	Details of the restaurant's customers.
-Table	        TableID (PK), TableNumber, Capacity, Status	Restaurant table details (e.g., available, occupied).
-Reservation 	ReservationID (PK), CustomerID (FK), TableID (FK), ResDate, ResTime, NumGuests, Status	Details for a table reservation.
-Waiter	        WaiterID (PK), Name, ContactInfo	Details of restaurant staff serving tables.
-Dish	        DishID (PK), DishName, Category, Price	Menu items (e.g., Starter, Main, Dessert).
-Order	        OrderID (PK), ReservationID (FK), OrderDate, OrderTime, Status	A customer's food order.
-Bill	        BillID (PK), ReservationID (FK), BillDate, TotalAmount, ServiceCharge, Status	Financial bill for a reservation.
-OrderLine	    OrderID (FK, PK), DishID (FK, PK), Quantity, Subtotal	Details of dishes within an order.
+Customer	  |  CustomerID (PK), Name, ContactInfo	|Details of the restaurant's customers.
+Table	     |   TableID (PK), TableNumber, Capacity, Status	|Restaurant table details (e.g., available, occupied).
+Reservation |	ReservationID (PK), CustomerID (FK), TableID (FK), ResDate, ResTime, NumGuests, Status	|Details for a table reservation.
+Waiter	    |    WaiterID (PK), Name, ContactInfo|	Details of restaurant staff serving tables.
+Dish	     |   DishID (PK), DishName, Category, Price	Menu |items (e.g., Starter, Main, Dessert).
+Order	      |  OrderID (PK), ReservationID (FK), OrderDate, OrderTime, Status	|A customer's food order.
+Bill	     |   BillID (PK), ReservationID (FK), BillDate, TotalAmount, ServiceCharge, Status	|Financial bill for a reservation.
+OrderLine	 |   OrderID (FK, PK), DishID (FK, PK), Quantity, Subtotal	|Details of dishes within an order.
 
 ### Relationships and Constraints
 
 | Relationship | Cardinality | Participation | Notes |
 |--------------|------------|---------------|-------|
-Customer MAKES Reservation FOR Table	1:N for Customer-Reservation, 1:N for Table-Reservation	Partial (Customer, Table), Total (Reservation)	A customer can make many reservations; a table can have many reservations over time. Each reservation is for one customer and one table.
-Reservation IS SERVED BY Waiter	M:N	Partial (Reservation, Waiter)	A reservation can be served by multiple waiters; a waiter can serve multiple reservations.
-Reservation PLACES Order	1:N	Total (Order), Partial (Reservation)	Each order is linked to one reservation; a reservation can have multiple orders.
-Order CONTAINS Dish	M:N	Total (OrderLine), Partial (Order, Dish)	An order can contain multiple dishes; a dish can be in multiple orders.
-Reservation GENERATES Bill	1:1	Total (Bill), Partial (Reservation)	Each reservation generates exactly one bill.
+Customer MAKES Reservation FOR Table	|1:N for Customer-Reservation, 1:N for Table-Reservation	|Partial (Customer, Table), Total (Reservation)|	A customer can make many reservations; a table can have many reservations over time. Each reservation is for one customer and one table.
+Reservation IS SERVED BY Waiter|	M:N|	Partial (Reservation, Waiter)|	A reservation can be served by multiple waiters; a waiter can serve multiple reservations.
+Reservation PLACES Order|	1:N	|Total (Order), Partial (Reservation)	|Each order is linked to one reservation; a reservation can have multiple orders.
+Order CONTAINS Dish|	M:N|	Total (OrderLine), Partial (Order, Dish)|	An order can contain multiple dishes; a dish can be in multiple orders.
+Reservation GENERATES Bill	|1:1	|Total (Bill), Partial (Reservation)|	Each reservation generates exactly one bill.
 
 
 ### Assumptions
