@@ -29,14 +29,14 @@ FlexiFit Gym wants a database to manage its members, trainers, and fitness progr
 
 | Entity | Attributes (PK, FK) | Notes |
 |--------|--------------------|-------|
-Member	        MemberID (PK), Name, MembershipType, StartDate	Gym member details.
-Program	        ProgramID (PK), ProgramName	Fitness program details.
-Trainer	        TrainerID (PK), Name, Specialization	Fitness trainer info.
-Session	        SessionID (PK), SessionDate, SessionTime, Status	Personal training session details.
-Payment	        PaymentID (PK), MemberID (FK), Amount, PaymentDate, PaymentType	Financial transaction tracking.
-Enrollment      MemberID (FK, PK), ProgramID (FK, PK)	Links members to programs.
-ProgramAssignment	TrainerID (FK, PK), ProgramID (FK, PK)	Links trainers to programs.
-Booking	        MemberID (FK, PK), TrainerID (FK, PK), SessionID (FK, PK)	Links members, trainers, sessions.
+Member	  |      MemberID (PK), Name, MembershipType, StartDate	|Gym member details.
+Program	   |     ProgramID (PK), ProgramName	|Fitness program details.
+Trainer	   |     TrainerID (PK), Name, Specialization	|Fitness trainer info.
+Session	   |     SessionID (PK), SessionDate, SessionTime, Status	|Personal training session details.
+Payment	    |    PaymentID (PK), MemberID (FK), Amount, PaymentDate, PaymentType	|Financial transaction tracking.
+Enrollment  |    MemberID (FK, PK), ProgramID (FK, PK)	|Links members to programs.
+ProgramAssignment	|TrainerID (FK, PK), ProgramID (FK, PK)	|Links trainers to programs.
+Booking	     |   MemberID (FK, PK), TrainerID (FK, PK), SessionID (FK, PK)	|Links members, trainers, sessions.
 ### Relationships and Constraints
 
 | Relationship | Cardinality | Participation | Notes |
