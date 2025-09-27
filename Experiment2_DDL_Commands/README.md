@@ -104,20 +104,29 @@ CREATE TABLE Table_Name (
 ```
 
 **Question 1**
---
--- Paste Question 1 here
+Create a table named Orders with the following constraints:
+OrderID as INTEGER should be the primary key.
+OrderDate as DATE should be not NULL.
+CustomerID as INTEGER should be a foreign key referencing Customers(CustomerID).
 
 ```sql
--- Paste your SQL code below for Question 1
-```
+CREATE TABLE Orders (
+    OrderID INTEGER PRIMARY KEY,
+    OrderDate DATE NOT NULL,
+    CustomerID INTEGER,
+    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
+);```
 
 **Output:**
 
 ![Output1](output.png)
 
 **Question 2**
----
--- Paste Question 2 here
+Create a table named ProjectAssignments with the following constraints:
+AssignmentID as INTEGER should be the primary key.
+EmployeeID as INTEGER should be a foreign key referencing Employees(EmployeeID).
+ProjectID as INTEGER should be a foreign key referencing Projects(ProjectID).
+AssignmentDate as DATE should be NOT NULL.
 
 ```sql
 -- Paste your SQL code below for Question 2
