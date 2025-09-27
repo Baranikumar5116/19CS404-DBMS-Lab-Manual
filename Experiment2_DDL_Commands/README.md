@@ -115,8 +115,8 @@ CREATE TABLE Orders (
     OrderDate DATE NOT NULL,
     CustomerID INTEGER,
     FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
-);```
-
+);
+```
 **Output:**
 
 ![Output1](output.png)
@@ -130,7 +130,6 @@ AssignmentDate as DATE should be NOT NULL.
 
 ```sql
 -- Paste your SQL code below for Question 2
-```
 
 **Output:**
 
