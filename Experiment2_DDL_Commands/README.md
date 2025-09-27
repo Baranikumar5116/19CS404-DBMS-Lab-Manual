@@ -104,10 +104,14 @@ CREATE TABLE Table_Name (
 ```
 
 **Question 1**
+
+
 Create a table named Orders with the following constraints:
 OrderID as INTEGER should be the primary key.
 OrderDate as DATE should be not NULL.
 CustomerID as INTEGER should be a foreign key referencing Customers(CustomerID).
+
+
 
 ```sql
 CREATE TABLE Orders (
@@ -117,6 +121,8 @@ CREATE TABLE Orders (
     FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
 );
 ```
+
+
 **Output:**
 
 <img width="1563" height="265" alt="image" src="https://github.com/user-attachments/assets/83b46c90-a873-4f7f-9b4a-d27eb49de030" />
@@ -124,11 +130,15 @@ CREATE TABLE Orders (
 
 
 **Question 2**
+
+
 Create a table named ProjectAssignments with the following constraints:
 AssignmentID as INTEGER should be the primary key.
 EmployeeID as INTEGER should be a foreign key referencing Employees(EmployeeID).
 ProjectID as INTEGER should be a foreign key referencing Projects(ProjectID).
 AssignmentDate as DATE should be NOT NULL.
+
+
 
 ```sql
 CREATE TABLE ProjectAssignments (
@@ -145,8 +155,12 @@ CREATE TABLE ProjectAssignments (
 <img width="1331" height="198" alt="image" src="https://github.com/user-attachments/assets/2bb96a1c-6047-499f-a97b-b58010afddf8" />
 
 **Question 3**
+
+
 ---
 Insert a student with RollNo 201, Name David Lee, Gender M, Subject Physics, and MARKS 92 into the Student_details table.
+
+
 
 ```sql
 INSERT INTO Student_details (RollNo, Name, Gender, Subject, Marks) 
@@ -165,6 +179,8 @@ ReviewID as INTEGER
 ProductID as INTEGER
 Rating as REAL
 ReviewText as TEXT
+
+
 ```sql
 CREATE TABLE Reviews (
     ReviewID INTEGER,
@@ -179,6 +195,8 @@ CREATE TABLE Reviews (
 <img width="1202" height="272" alt="image" src="https://github.com/user-attachments/assets/cabe7791-6ee2-4da4-ae9a-90df43c53b50" />
 
 **Question 5**
+
+
 ---
 Write an SQL command can to add a column named email of type TEXT to the customers table
 
@@ -194,6 +212,8 @@ ADD COLUMN email TEXT;
 <img width="1023" height="200" alt="image" src="https://github.com/user-attachments/assets/17f79160-8f0e-464f-ac87-36b7447802d7" />
 
 **Question 6**
+
+
 ---
 Write an SQL query to add a new column salary of type INTEGER to the Employees table, with a CHECK constraint that ensures the value in this column is greater than 0.
 ```sql
@@ -206,13 +226,16 @@ ADD COLUMN salary INTEGER CHECK (salary > 0);
 <img width="1053" height="206" alt="image" src="https://github.com/user-attachments/assets/e589b5fc-c303-44bf-84e7-98a920671850" />
 
 **Question 7**
+
+
 ---
 Insert the following customers into the Customers table:
 
-CustomerID  Name         Address     City        ZipCode
-----------  -----------  ----------  ----------  ----------
-302         Laura Croft  456 Elm St  Seattle     98101
-303         Bruce Wayne  789 Oak St  Gotham      10001
+|CustomerID  |Name         |Address    | City     |   ZipCode|
+|302         |Laura Croft  |456 Elm St | Seattle  |  98101   |
+|303         |Bruce Wayne  |789 Oak St |Gotham    |10001     |
+
+
 ```sql
 INSERT INTO Customers (CustomerID, Name, Address, City, ZipCode) 
 VALUES
@@ -225,12 +248,16 @@ VALUES
 <img width="957" height="264" alt="image" src="https://github.com/user-attachments/assets/78100d2e-2e74-4f16-988f-82539a8ca9e8" />
 
 **Question 8**
+
+
 ---
 Create a table named Attendance with the following constraints:
 AttendanceID as INTEGER should be the primary key.
 EmployeeID as INTEGER should be a foreign key referencing Employees(EmployeeID).
 AttendanceDate as DATE.
 Status as TEXT should be one of 'Present', 'Absent', 'Leave'.
+
+
 ```sql
 CREATE TABLE Attendance (
     AttendanceID INTEGER PRIMARY KEY,
@@ -246,6 +273,8 @@ CREATE TABLE Attendance (
 <img width="1288" height="207" alt="image" src="https://github.com/user-attachments/assets/7cf48dca-c165-4a26-a2e8-e3ee683cbe9e" />
 
 **Question 9**
+
+
 ---
 Create a new table named contacts with the following specifications:
 contact_id as INTEGER and primary key.
@@ -253,6 +282,8 @@ first_name as TEXT and not NULL.
 last_name as TEXT and not NULL.
 email as TEXT.
 phone as TEXT and not NULL with a check constraint to ensure the length of phone is at least 10 characters.
+
+
 ```sql
 CREATE TABLE contacts (
     contact_id INTEGER PRIMARY KEY,
@@ -268,10 +299,14 @@ CREATE TABLE contacts (
 <img width="1562" height="234" alt="image" src="https://github.com/user-attachments/assets/8f8180c1-95fd-4147-8f5a-dd7ce101a432" />
 
 **Question 10**
+
+
 ---
 Insert all products from Discontinued_products into Products.
 
 Table attributes are ProductID, ProductName, Price, Stock
+
+
 ```sql
 INSERT INTO Products (ProductID, ProductName, Price, Stock)
 SELECT ProductID, ProductName, Price, Stock
@@ -281,6 +316,10 @@ FROM Discontinued_products;
 **Output:**
 
 <img width="786" height="199" alt="image" src="https://github.com/user-attachments/assets/6b7d57d5-0d78-459e-87a9-fe7eb399b231" />
+
+
+
+<img width="2462" height="1473" alt="image" src="https://github.com/user-attachments/assets/51cd3823-d8d6-43c4-b661-8da1f5e338f4" />
 
 
 ## RESULT
