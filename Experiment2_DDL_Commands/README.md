@@ -166,18 +166,6 @@ ProductID as INTEGER
 Rating as REAL
 ReviewText as TEXT
 ```sql
--- Paste your SQL code below for Question 4
-```
-
-**Output:**
-
-![Output4](output.png)
-
-**Question 5**
----
--- Paste Question 5 here
-
-```sql
 CREATE TABLE Reviews (
     ReviewID INTEGER,
     ProductID INTEGER,
@@ -188,67 +176,111 @@ CREATE TABLE Reviews (
 
 **Output:**
 
-![Output5](output.png)
+<img width="1202" height="272" alt="image" src="https://github.com/user-attachments/assets/cabe7791-6ee2-4da4-ae9a-90df43c53b50" />
+
+**Question 5**
+---
+Write an SQL command can to add a column named email of type TEXT to the customers table
+
+ 
+```sql
+ALTER TABLE customers
+ADD COLUMN email TEXT;
+
+```
+
+**Output:**
+
+<img width="1023" height="200" alt="image" src="https://github.com/user-attachments/assets/17f79160-8f0e-464f-ac87-36b7447802d7" />
 
 **Question 6**
 ---
--- Paste Question 6 here
-
+Write an SQL query to add a new column salary of type INTEGER to the Employees table, with a CHECK constraint that ensures the value in this column is greater than 0.
 ```sql
--- Paste your SQL code below for Question 6
+ALTER TABLE Employees
+ADD COLUMN salary INTEGER CHECK (salary > 0);
 ```
 
 **Output:**
 
-![Output6](output.png)
+<img width="1053" height="206" alt="image" src="https://github.com/user-attachments/assets/e589b5fc-c303-44bf-84e7-98a920671850" />
 
 **Question 7**
 ---
--- Paste Question 7 here
+Insert the following customers into the Customers table:
 
+CustomerID  Name         Address     City        ZipCode
+----------  -----------  ----------  ----------  ----------
+302         Laura Croft  456 Elm St  Seattle     98101
+303         Bruce Wayne  789 Oak St  Gotham      10001
 ```sql
--- Paste your SQL code below for Question 7
+INSERT INTO Customers (CustomerID, Name, Address, City, ZipCode) 
+VALUES
+(302, 'Laura Croft', '456 Elm St', 'Seattle', 98101),
+(303, 'Bruce Wayne', '789 Oak St', 'Gotham', 10001);
 ```
 
 **Output:**
 
-![Output7](output.png)
+<img width="957" height="264" alt="image" src="https://github.com/user-attachments/assets/78100d2e-2e74-4f16-988f-82539a8ca9e8" />
 
 **Question 8**
 ---
--- Paste Question 8 here
-
+Create a table named Attendance with the following constraints:
+AttendanceID as INTEGER should be the primary key.
+EmployeeID as INTEGER should be a foreign key referencing Employees(EmployeeID).
+AttendanceDate as DATE.
+Status as TEXT should be one of 'Present', 'Absent', 'Leave'.
 ```sql
--- Paste your SQL code below for Question 8
+CREATE TABLE Attendance (
+    AttendanceID INTEGER PRIMARY KEY,
+    EmployeeID INTEGER,
+    AttendanceDate DATE,
+    Status TEXT CHECK (Status IN ('Present', 'Absent', 'Leave')),
+    FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID)
+);
 ```
 
 **Output:**
 
-![Output8](output.png)
+<img width="1288" height="207" alt="image" src="https://github.com/user-attachments/assets/7cf48dca-c165-4a26-a2e8-e3ee683cbe9e" />
 
 **Question 9**
 ---
--- Paste Question 9 here
-
+Create a new table named contacts with the following specifications:
+contact_id as INTEGER and primary key.
+first_name as TEXT and not NULL.
+last_name as TEXT and not NULL.
+email as TEXT.
+phone as TEXT and not NULL with a check constraint to ensure the length of phone is at least 10 characters.
 ```sql
--- Paste your SQL code below for Question 9
+CREATE TABLE contacts (
+    contact_id INTEGER PRIMARY KEY,
+    first_name TEXT NOT NULL,
+    last_name TEXT NOT NULL,
+    email TEXT,
+    phone TEXT NOT NULL CHECK (LENGTH(phone) >= 10)
+);
 ```
 
 **Output:**
 
-![Output9](output.png)
+<img width="1562" height="234" alt="image" src="https://github.com/user-attachments/assets/8f8180c1-95fd-4147-8f5a-dd7ce101a432" />
 
 **Question 10**
 ---
--- Paste Question 10 here
+Insert all products from Discontinued_products into Products.
 
+Table attributes are ProductID, ProductName, Price, Stock
 ```sql
--- Paste your SQL code below for Question 10
+INSERT INTO Products (ProductID, ProductName, Price, Stock)
+SELECT ProductID, ProductName, Price, Stock
+FROM Discontinued_products;
 ```
 
 **Output:**
 
-![Output10](output.png)
+<img width="786" height="199" alt="image" src="https://github.com/user-attachments/assets/6b7d57d5-0d78-459e-87a9-fe7eb399b231" />
 
 
 ## RESULT
