@@ -119,7 +119,9 @@ CREATE TABLE Orders (
 ```
 **Output:**
 
-![Output1](output.png)
+<img width="1563" height="265" alt="image" src="https://github.com/user-attachments/assets/83b46c90-a873-4f7f-9b4a-d27eb49de030" />
+
+
 
 **Question 2**
 Create a table named ProjectAssignments with the following constraints:
@@ -129,28 +131,40 @@ ProjectID as INTEGER should be a foreign key referencing Projects(ProjectID).
 AssignmentDate as DATE should be NOT NULL.
 
 ```sql
--- Paste your SQL code below for Question 2
-
+CREATE TABLE ProjectAssignments (
+    AssignmentID INTEGER PRIMARY KEY,
+    EmployeeID INTEGER,
+    ProjectID INTEGER,
+    AssignmentDate DATE NOT NULL,
+    FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID),
+    FOREIGN KEY (ProjectID) REFERENCES Projects(ProjectID)
+);
+``` 
 **Output:**
 
-![Output2](output.png)
+<img width="1331" height="198" alt="image" src="https://github.com/user-attachments/assets/2bb96a1c-6047-499f-a97b-b58010afddf8" />
 
 **Question 3**
 ---
--- Paste Question 3 here
+Insert a student with RollNo 201, Name David Lee, Gender M, Subject Physics, and MARKS 92 into the Student_details table.
 
 ```sql
--- Paste your SQL code below for Question 3
+INSERT INTO Student_details (RollNo, Name, Gender, Subject, Marks) 
+VALUES (201, 'David Lee', 'M', 'Physics', 92);
 ```
 
 **Output:**
 
-![Output3](output.png)
+<img width="1034" height="171" alt="image" src="https://github.com/user-attachments/assets/2a96eb64-0a40-483f-a1e5-3f37a8d101b2" />
 
 **Question 4**
 ---
--- Paste Question 4 here
+Create a table named Reviews with the following columns:
 
+ReviewID as INTEGER
+ProductID as INTEGER
+Rating as REAL
+ReviewText as TEXT
 ```sql
 -- Paste your SQL code below for Question 4
 ```
@@ -164,7 +178,12 @@ AssignmentDate as DATE should be NOT NULL.
 -- Paste Question 5 here
 
 ```sql
--- Paste your SQL code below for Question 5
+CREATE TABLE Reviews (
+    ReviewID INTEGER,
+    ProductID INTEGER,
+    Rating REAL,
+    ReviewText TEXT
+);
 ```
 
 **Output:**
