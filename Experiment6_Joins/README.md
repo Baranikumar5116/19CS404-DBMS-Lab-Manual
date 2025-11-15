@@ -54,10 +54,19 @@ ON table1.column = table2.column;
 
 **Question 1**
 --
--- Paste Question 1 here
+Write the SQL query that achieves the selection of the date of birth from the "patients" table (aliased as "p") and all columns from the "appointments" table (aliased as "a"), with an inner join on the "patient_id" column and a condition filtering for patients with the first name 'Alice'.
 
 ```sql
--- Paste your SQL code below for Question 1
+SELECT 
+    p.date_of_birth,
+    a.appointment_id,
+    a.patient_id,
+    a.doctor_id,
+    a.appointment_date
+FROM patients p
+INNER JOIN appointments a
+    ON p.patient_id = a.patient_id
+WHERE p.first_name = 'Alice';
 ```
 
 **Output:**
@@ -66,10 +75,17 @@ ON table1.column = table2.column;
 
 **Question 2**
 ---
--- Paste Question 2 here
+Write the SQL query that achieves the selection of the first name from the "patients" table and all columns from the "surgeries" table, with an inner join on the "patient_id" column. Include conditions to filter for patients discharged between '2024-03-01' and '2024-03-31' but not admitted during the same period.
 
 ```sql
--- Paste your SQL code below for Question 2
+SELECT 
+    p.first_name,
+    s.*
+FROM patients p
+INNER JOIN surgeries s
+    ON p.patient_id = s.patient_id
+WHERE p.discharge_date BETWEEN '2024-03-01' AND '2024-03-31'
+  AND (p.admission_date < '2024-03-01' OR p.admission_date > '2024-03-31');
 ```
 
 **Output:**
@@ -78,10 +94,20 @@ ON table1.column = table2.column;
 
 **Question 3**
 ---
--- Paste Question 3 here
+From the following tables write a SQL query to find those customers with a grade less than 300. Return cust_name, customer city, grade, Salesman, salesmancity. The result should be ordered by ascending customer_id. 
 
 ```sql
--- Paste your SQL code below for Question 3
+SELECT 
+    c.cust_name,
+    c.city,
+    c.grade,
+    s.name AS "Salesman",
+    s.city AS "salesmancity"
+FROM customer c
+INNER JOIN salesman s
+    ON c.salesman_id = s.salesman_id
+WHERE c.grade < 300 OR c.grade IS NULL
+ORDER BY c.customer_id ASC;
 ```
 
 **Output:**
@@ -90,7 +116,7 @@ ON table1.column = table2.column;
 
 **Question 4**
 ---
--- Paste Question 4 here
+Write a SQL statement to make a report with customer name, city, order number, order date, and order amount in ascending order according to the order date to determine whether any of the existing customers have placed an order or not.
 
 ```sql
 -- Paste your SQL code below for Question 4
