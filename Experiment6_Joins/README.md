@@ -333,5 +333,4 @@ ON
 ## RESULT
 Thus, the SQL queries to implement different types of joins have been executed successfully.
 
-<img width="657" height="413" alt="image" src="https://github.com/user-attachments/assets/b08f4df3-b017-4aa3-817d-15ef81d1a790" />
 
